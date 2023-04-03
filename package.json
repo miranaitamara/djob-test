@@ -1,0 +1,95 @@
+{
+    "name": "djob-test-react",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@emotion/react": "^11.10.6",
+        "@emotion/styled": "^11.10.6",
+        "@mui/icons-material": "^5.11.11",
+        "@mui/lab": "^5.0.0-alpha.124",
+        "@mui/material": "^5.11.15",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "@types/jest": "^29.4.0",
+        "@types/node": "^18.14.0",
+        "concurrently": "^7.6.0",
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "nodemon": "^2.0.20",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-scripts": "5.0.1",
+        "styled-components": "^5.3.6",
+        "typescript": "^4.9.5",
+        "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+        "format:src": "prettier --config ./.prettierrc.json --write 'src/**/*.ts' '*.{js,json,jsx,tsx,css,md}'",
+        "check:src:spell": "npx cspell '*.md' 'src/**/*.ts'",
+        "check:src:tslint": "tslint 'src/**/*.ts' --quiet --fix",
+        "check:src:eslint": "eslint 'src/**/*.ts' --quiet",
+        "check:src": "npm run check:src:tslint && npm run check:src:eslint && npm run check:src:spell",
+        "check": "npm run check:src",
+        "type-check": "tsc --noEmit",
+        "api-backend": "nodemon ./api/index.js",
+        "start": "concurrently --kill-others \"npm run api-backend\" \"react-scripts start\"",
+        "build": "react-scripts build",
+        "test": "TZ='UTC' jest --runInBand --detectOpenHandles --forceExit --coverage --coverageReporters=\"text-summary\"",
+        "test:tsc": "tsc -p tsconfig.test.json -w",
+        "test:debug": "TZ='UTC' node_modules/jest/bin/jest.js --runInBand --no-cache --watchAll",
+        "eject": "react-app-rewired start eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "proxy": "http://localhost:8080",
+    "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/preset-env": "^7.15.0",
+        "@babel/preset-react": "^7.14.5",
+        "@babel/preset-typescript": "^7.15.0",
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^11.2.7",
+        "@testing-library/user-event": "^12.8.3",
+        "@types/lodash": "^4.14.186",
+        "@types/pino": "6.3.5",
+        "@types/qs": "^6.9.7",
+        "@types/react": "^18.0.32",
+        "@types/react-dom": "^18.0.11",
+        "@types/supertest": "2.0.10",
+        "@types/uuid": "^9.0.0",
+        "@typescript-eslint/eslint-plugin": "4.15.1",
+        "@typescript-eslint/parser": "4.15.1",
+        "cspell": "5.2.4",
+        "eslint": "7.20.0",
+        "eslint-plugin-import": "2.22.1",
+        "eslint-plugin-promise": "4.3.1",
+        "eslint-plugin-unicorn": "28.0.2",
+        "husky": "4.3.8",
+        "jest": "26.6.0",
+        "npm-license-crawler": "0.2.1",
+        "pino-pretty": "4.5.0",
+        "prettier": "2.2.1",
+        "react-app-rewired": "^2.1.8",
+        "react-error-overlay": "6.0.9",
+        "serve": "^11.3.0",
+        "ts-jest": "26.5.0",
+        "tslint": "6.1.3"
+    }
+}
