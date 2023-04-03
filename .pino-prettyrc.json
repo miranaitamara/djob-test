@@ -1,0 +1,14 @@
+{
+    "crlf": false,
+    "errorLikeObjectKeys": ["err", "error"],
+    "errorProps": "",
+    "levelFirst": false,
+    "messageKey": "msg",
+    "levelKey": "level",
+    "messageFormat": true,
+    "timestampKey": "time",
+    "translateTime": true,
+    "ignore": "pid,hostname",
+    "hideObject": false,
+    "customPrettifiers": {}
+}
